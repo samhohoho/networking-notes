@@ -1,0 +1,9 @@
+ifconfig: Display the IP configuration for all network interfaces on the device.
+
+netstat: Display active network connections, listening ports, and routing tables.
+
+uname -a: Display detailed info about the OS.
+
+dig: Look up the IP address of a domain or host.
+
+ping: Send a series of network packets to test network connectivity.
