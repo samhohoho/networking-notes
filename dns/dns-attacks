@@ -13,3 +13,14 @@ Other purposes:
     - To block access to specific websites or redirect users to alternative websites under their control.
   Data theft
     - By redirection DNS queries, attackers can route user traffic through their servers and capture the transmitted data.
+
+Cache poisoning / DNS spoofing
+
+To manipulate the data stored in a DNS resolver's cache to redirect users to malicious websites or intercept their communicatios.
+Process:
+  DNS resolution process.
+    - The DNS resolver performs a DNS lookup to obtain the IP address associated with that domain when a user submits a domain name.
+  DNS caching.
+    - The DNS resolver stores the results of the previous DNS lookups in their cache for a certain period.
+  Cache poisoning
+    - An attacker sends forged DNS responses to a DNS resolver, pretending to be a legitimate DNS server.
