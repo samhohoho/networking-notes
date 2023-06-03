@@ -1,0 +1,15 @@
+DNS hijacking / DNS redirection / DNS poisoning
+
+Where an attacker intercepts and modifies DNS queries or responses to redirect users to unauthorized or malicious websites.
+Other purposes:
+  Phishing attacks
+    - To redirect users to fake websites that imitate legitimate platforms.
+  Malware distribution
+    - To redirect users to websites hosting malware or exploit kits, which can lead to unauthorized access, and data theft.
+  Advertising fraud
+    - To redirect users and display fraudulent ads.
+    - It is known as INJECTION, allowing attackers to generate revenue through ads clicks.
+  Censorship and surveillance
+    - To block access to specific websites or redirect users to alternative websites under their control.
+  Data theft
+    - By redirection DNS queries, attackers can route user traffic through their servers and capture the transmitted data.
