@@ -1,0 +1,52 @@
+Distributed Denial-of-Service (DDoS)
+https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/
+
+To disrupt the normal traffic of a targeted server, service of network by overwhelming the target/surrounding infrastructure with a flood of internet traffic.
+To prevent regular traffic from arriving at its destination.
+It utilizes multiple compromised computer systems as sources of attack traffic.
+Exploited machines can include computers and other networked resources suck as IoT devices.
+
+How does the attack work?
+  - using the networks of internet-connected machines, which have been infected with malware, allowing them to be controlled remotely by an attacker.
+  - These devices are known as bots, or botnet for a group of bots.
+  - Attacker sends bots the remote instructions to direct an attack.
+  - Each bot sends requests to the target's IP address, causing the server/network to become overwhelmed, resulting in a denial-of-service to normal traffic.
+
+How to identify the attack?
+  - when a site becomes slow or unavailable.
+  - use traffic analytic tools.
+  - suspicious amounts of traffic originating from a single IP address or IP range.
+  - a flood of traffic from users who share a single behavioral profile (device type, geolocation, or web browser version)
+  - an unexplained surge in requests to a single endpoint.
+  - odd traffic patterns (e.g. a spike every 10 minutes).
+
+https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
+How network connection is made. OSI model.
+Network connection on the internet is composed of different components/layers.
+  - Application:
+    human-computer interaction layer, where apps can access the network services.
+  - Presentation:
+    ensure that data is in a usable format.
+    data encryption.
+  - Session:
+    maintain connection.
+    Control ports and sessions.
+  - Transport:
+    Transmit data using transmission protocols
+    including TCP and UDP.
+  - Network:
+    Decides which physical path the data will take.
+  - Data Link:
+    Defines the format of data on the network.
+  - Physical:
+    Transmits raw bit stream over the physical medium.
+
+Application layer attacks
+To exhaust the target's resources to create a denial-of-service.
+It targets the layer where web pages are generated on the server.
+Hard to differentiate malicious traffic from legitimate page.
+A single HTTP req is cheap on client side, but its expensive for the server, as it loads multiple files and run db queries.
+HTTP flood:
+  - large numbers of HTTP requests flood the server, resulting in denial-of-service.
+  - using attacking IP addresses, referrers and user agents.
+
