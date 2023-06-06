@@ -20,8 +20,10 @@ How to identify the attack?
   - an unexplained surge in requests to a single endpoint.
   - odd traffic patterns (e.g. a spike every 10 minutes).
 
+OSI model
 https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
-How network connection is made. OSI model.
+How network connection is made.
+How computer networking protocols should work with each other.
 Network connection on the internet is composed of different components/layers.
   - Application:
     human-computer interaction layer, where apps can access the network services.
