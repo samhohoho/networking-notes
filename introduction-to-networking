@@ -1,0 +1,36 @@
+Local Area Network (LAN)
+  - A network that connects devices which are in the same local area (like Uni campus).
+
+Wide Area Network 
+  - To have connectivity between Office 1 and Office 2.
+  - Dedicated server between routers.
+  - To have connectivity between different end hosts on the network.
+
+Switch 
+  - To allow connectivity on my Local Area Network.
+Router
+  - To route traffic between different areas of your network.
+Firewall
+  - Between Router and Internet.
+
+For end hosts (PC, server, and printer) to talk to each other, need to ethernet cable these devices to the network Switch.
+
+For a laptop to connect to wireless network, a Wireless Access Point (WAP) to connect into the Switch.
+
+For a laptop to talk to devices out on the internet, connect Switch to Router.
+
+Network characteristics
+Topology
+Speed
+Cost
+Security
+  - Firewall and security features on router, switches, and other devices.
+  - Intrusion Prevention Systems (IPS).
+Availability
+  - Always stays up.
+  - Have backup components if one failed.
+Scalability
+  - Network to grow with company without redesign.
+Reliability
+  - Similar to availability.
+  - network is reliable and continue to work.
