@@ -1,0 +1,9 @@
+Cisco Packet Tracer installation.
+https://skillsforall.com/resources/lab-downloads?courseLang=en-US
+Tutorial: https://www.youtube.com/watch?v=c6wD6XWwTPU
+sudo dpkg -i Packet_Tracer821_amd64_signed.deb
+sudo apt install -f
+packettracer
+
+Anki Flashcards
+https://docs.ankiweb.net/platform/linux/installing.html
