@@ -1,0 +1,9 @@
+TCP/IP stack
+  - A protocol stack consists of multiple protocols including TCP (Transmission Control Protocol) and IP (Internet Protocol)
+  - Used to transfer data in todays production networks.
+  - To allow communication over large distances.
+  - TCP IP layers similar to OSI layers.
+  - Layers:
+    - Application, Transport, Internet, Network Access
+  - Exchanging PDU (Protocol Data Units) or Packets between 2 hosts.
+    Meaning the entire stack
