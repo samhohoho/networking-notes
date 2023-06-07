@@ -1,0 +1,31 @@
+OSI (Open Systems Interconnect) Model
+  - A standard of the International Organization for Standardization (ISO).
+  - Standardize how computers communicate with one another over a network.
+  - Seven-layered approach to data transmission.
+    Operations are divided at each layer.
+  - A layer serves the layer above.
+  - To break down the problem and isolate the source of the trouble.
+
+7. Application
+  - To interact with data from the user.
+  - Clients rely on this layer to initiate communication.
+  - Clients are not part of the layer.
+  - Responsible for the protocols and data manipulation.
+    For client to present meaningful data to the user.
+  - Protocols include HTTP and SMTP (email communication).
+
+6. Presentation
+  - Prepare data for the Application layer.
+  - Make data presentable for apps to consume.
+  - Responsible for translation, encryption, and compression of data.
+  - Add encryption on sender's end and decode encryption on receiver's end.
+  - Compress data from Application layer before layer 5.
+    minimize data amount to improve speed and efficiency.
+
+5. Session
+  - session = the time between the communication is opened and closed.
+  - Responsible for opening and closing communication between the 2 devices.
+  - Ensure the session stays open long enough to transfer all the data being exchanged.
+    Then close to avoid wasting resources.
+  - Synchronize data transfer with checkpoints.
+    If crashed at 52mb, session will be resumed at 50mb.
