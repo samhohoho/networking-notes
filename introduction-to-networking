@@ -34,3 +34,7 @@ Scalability
 Reliability
   - Similar to availability.
   - network is reliable and continue to work.
+
+Production Network
+  - In band
+  - The cables normal users would use.
