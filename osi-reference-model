@@ -8,10 +8,16 @@ OSI (Open Systems Interconnect) Model
   - A layer serves the layer above.
   - To break down the problem and isolate the source of the trouble.
 
+The Upper OSI Layers
+  - Includes the Message Body and Subject Line in an email message for example.
+
 7. Application
+  - Provide network services to the app.
   - To interact with data from the user.
   - Clients rely on this layer to initiate communication.
   - Clients are not part of the layer.
+  - Synchronizes and establishes agreement on procedures for error recovery and control of data integrity.
+    Data integrity: check data is not altered or corrupted in transit.
   - Responsible for the protocols and data manipulation.
     For client to present meaningful data to the user.
   - Protocols include HTTP and SMTP (email communication).
@@ -25,7 +31,7 @@ OSI (Open Systems Interconnect) Model
     minimize data amount to improve speed and efficiency.
 
 5. Session
-  - Communication session.
+  - Establishes, manages, and terminates communication session.
   - session = the time between the communication is opened and closed.
   - Responsible for opening and closing communication between the 2 devices.
   - Ensure the session stays open long enough to transfer all the data being exchanged.
@@ -34,7 +40,9 @@ OSI (Open Systems Interconnect) Model
     If crashed at 52mb, session will be resumed at 50mb.
 
 4. Transport
+  - To segment, transfer, and reassemble.
   - Break up data from Session layer into chunks (segments) before layer 3.
+    To prevent transmission problem.
   - Reassemble the segments for Session layer.
   - Responsible for flow control and error control in inter-network communications.
   - Flow control
@@ -45,9 +53,12 @@ OSI (Open Systems Interconnect) Model
     - request retransmission if not.
   - Check traffic's target server by checking the port number.
   - Protocols include TCP (Transmission Control Protocol) and UDP (User Datagram Protocol).
-    Port number (80 -> web traffic, 25 -> email)
+    Port number (80 -> HTTP web traffic, 25 -> email)
+  - TCP -> reliable, UDP -> speed (voice or video traffic)
 
 3. Network
+  - Includes the source and IP address.
+  - Provide connectivity, logical address (IP address), and path selection.
   - Facilitate data transfer between two networks.
   - Break up segments from Transport layer into smaller units (Packets).
   - Reassemble on receiver's end.
@@ -69,6 +80,8 @@ OSI (Open Systems Interconnect) Model
     - Switches.
 
 1. Physical
+  - Defines needed specifications for activating, maintaining, and deactivating the physical link.
+    Like voltage level, data rate, max transmission distances, physical connectors.
   - Includes physical equipment involved in data transfer.
     Cables and switches.
   - Convert data into a bit stream, which is a string of 1s and 0s.
