@@ -43,7 +43,9 @@ OSI (Open Systems Interconnect) Model
   - Error control
     - Ensure complete data received on receiver's end.
     - request retransmission if not.
+  - Check traffic's target server by checking the port number.
   - Protocols include TCP (Transmission Control Protocol) and UDP (User Datagram Protocol).
+    Port number (80 -> web traffic, 25 -> email)
 
 3. Network
   - Facilitate data transfer between two networks.
@@ -52,14 +54,23 @@ OSI (Open Systems Interconnect) Model
   - Routing
     - Finds the best physical path to destination.
   - Protocols include IP, ICMP (Internet Control Message Protocol), IGMP (Internet Group Message Protocol), and IPsec suite.
+  - Check IP address.
+  - Includes
+    - Routers
 
 2. The data link
   - Similar to Network layer.
   - Facilitate data transfer between 2 devices on the same networks.
   - Break up Packets into smaller pieces (Frames).
   - Responsible for Flow Control and Error Control in intra-network communication.
+  - Check MAC address, discard packets if mismatch.
+  - Includes 
+    - MAC address if sending over an Ethernet network.
+    - Switches.
 
 1. Physical
   - Includes physical equipment involved in data transfer.
     Cables and switches.
   - Convert data into a bit stream, which is a string of 1s and 0s.
+  - Includes
+    - Hub
