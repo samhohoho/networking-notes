@@ -1,0 +1,25 @@
+?: show all commands
+ENTER: scroll by line
+SPACEBAR: scroll by page
+enable: goto priviledged exec mode
+disable: to user level
+command ?: to show all available commands to addon
+command run
+show: state and time
+debug: real time update
+configure terminal conf t: goto global configuration
+Ctrl A: start of the line
+interface fashEthernet 0/0: interface config mode
+exit: drop one level
+end, Ctrl C: drop to enable prompt
+show ip interface brief: all interfaces
+show running-config: entire config on the router
+
+Global configuration mode
+do command: work from any level, except priviledged exec mode
+
+Prompt
+# = global
+
+Settings
+  - lines pf scrollback
