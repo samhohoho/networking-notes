@@ -8,18 +8,32 @@ command run
 show: state and time
 debug: real time update
 configure terminal conf t: goto global configuration
-Ctrl A: start of the line
 interface fashEthernet 0/0: interface config mode
 exit: drop one level
 end, Ctrl C: drop to enable prompt
 show ip interface brief: all interfaces
 show running-config: entire config on the router
+sh run int fast0/0: show interface configuration
+sh run | begin hostman: only the config starting with "hostman"
+sh run | section bgp: BGP routing protocol
+hostname Router1: change hostname
+
+Ctrl A: start of the line
 
 Global configuration mode
-do command: work from any level, except priviledged exec mode
+  - do command: work from any level, except priviledged exec mode
+  - show command doesnt work
 
 Prompt
 # = global
 
 Settings
   - lines pf scrollback
+
+Running configuration
+  - triggered when changes made
+  - in effect now
+  - commands will not saved 
+  - 
+Startup configuration
+  - when router is started/rebooted
