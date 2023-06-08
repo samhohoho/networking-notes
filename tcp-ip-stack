@@ -7,3 +7,36 @@ TCP/IP stack
     - Application, Transport, Internet, Network Access
   - Exchanging PDU (Protocol Data Units) or Packets between 2 hosts.
     Meaning the entire stack
+
+TCP
+  - Header composed of:
+    - src port, dst port, seq number, ack number, checksum
+  - connection oriented
+  - bidirectionally
+  - sequencing to ensure segments in correct order
+  - flow control
+  - acknowledgement and retransmission
+    - receiver sends acknowledgement if successful
+    - sender resends if no acknowledgement
+  - FTP (file transfer protocol)(port 21), SSH (secure shell)(22), Telnet (23), HTTP (80), HTTPS (443)
+
+The TCP Three-Way Handshake
+  - sender initiate SYN (Synchronized Message)
+  - receiver then reply with SYN-ACK (Synchronized Acknowledgement)
+  - sender sends ACK
+
+UDP (User Datagram Protocol)
+  - not connection oriented
+  - no Handshake connection
+  - no sequencing, acknowledgement, flow control
+  - not reliable
+  - no error detection and recovery, only provided by upper layers
+  - TFTP (69), SNMP (simple network management protocol)(161)
+
+TCP and UDP
+  - DNS (53)
+
+UDP vs TCP
+  - TCP -> reliability
+    very slow for video due to extra overhead
+  - UDP -> real time app (video or voice)

@@ -45,6 +45,7 @@ The Upper OSI Layers
     To prevent transmission problem.
   - Reassemble the segments for Session layer.
   - Responsible for flow control and error control in inter-network communications.
+    And error recovery.
   - Flow control
     - optimal speed of transmission.
     - ensure fast sender doesnt overwhelm the slow connection receiver.
@@ -52,6 +53,9 @@ The Upper OSI Layers
     - Ensure complete data received on receiver's end.
     - request retransmission if not.
   - Check traffic's target server by checking the port number.
+  - Ultilize source and destination port numbers to track session.
+    Sender DST: 80 SRC: 1500
+    Receiver DST: 1500 SRC: 80
   - Protocols include TCP (Transmission Control Protocol) and UDP (User Datagram Protocol).
     Port number (80 -> HTTP web traffic, 25 -> email)
   - TCP -> reliable, UDP -> speed (voice or video traffic)
