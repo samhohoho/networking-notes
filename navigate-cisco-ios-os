@@ -13,10 +13,18 @@ exit: drop one level
 end, Ctrl C: drop to enable prompt
 show ip interface brief: all interfaces
 show running-config: entire config on the router
+show startup-config
 sh run int fast0/0: show interface configuration
 sh run | begin hostman: only the config starting with "hostman"
 sh run | section bgp: BGP routing protocol
 hostname Router1: change hostname
+copy run start: make permanent changes
+copy run flash:filename: save a copy to flash drive / backup
+sh flash
+erase start: erase NVRAM file system / startup config
+copy flash:filename start: merge backup to startup-config
+copy run tftp: backup to tftp server
+more flash:filename: read config file
 
 Ctrl A: start of the line
 
@@ -31,9 +39,12 @@ Settings
   - lines pf scrollback
 
 Running configuration
-  - triggered when changes made
-  - in effect now
-  - commands will not saved 
-  - 
+  - current config
+  - stored in device's volatile memory (RAM) from startup-config
+  - lost when powered off
 Startup configuration
   - when router is started/rebooted
+  - saved config
+  - stored in non-volatile memory (NVRAM)
+  - will be loaded when device is powered on
+  - a saved copy of the running-config
