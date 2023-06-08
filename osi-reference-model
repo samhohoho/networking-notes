@@ -36,7 +36,7 @@ The Upper OSI Layers
   - Responsible for opening and closing communication between the 2 devices.
   - Ensure the session stays open long enough to transfer all the data being exchanged.
     Then close to avoid wasting resources.
-  - Synchronize data transfer with checkpoints.
+  - Introduce synchronization points
     If crashed at 52mb, session will be resumed at 50mb.
 
 4. Transport
@@ -61,6 +61,10 @@ The Upper OSI Layers
   - TCP -> reliable, UDP -> speed (voice or video traffic)
 
 3. Network
+  - Quality of Service
+    - different level of service based on traffic requirements.
+    - manage network resources
+    - bandwidth management, prioritization, traffic shaping and policy, delay and latency management, 
   - Includes the source and IP address.
   - Provide connectivity, logical address (IP address), and path selection.
   - Facilitate data transfer between two networks.
