@@ -38,6 +38,7 @@ The Upper OSI Layers
     Then close to avoid wasting resources.
   - Introduce synchronization points
     If crashed at 52mb, session will be resumed at 50mb.
+  - relies lower layers to handle data integrity and reliability.
 
 4. Transport
   - To segment, transfer, and reassemble.
@@ -53,11 +54,12 @@ The Upper OSI Layers
     - Ensure complete data received on receiver's end.
     - request retransmission if not.
   - Check traffic's target server by checking the port number.
-  - Ultilize source and destination port numbers to track session.
+  - Ultilize source and destination port numbers to establish connection and track session.
     Sender DST: 80 SRC: 1500
     Receiver DST: 1500 SRC: 80
   - Protocols include TCP (Transmission Control Protocol) and UDP (User Datagram Protocol).
     Port number (80 -> HTTP web traffic, 25 -> email)
+  - Source IP address + source port = sender unique id
   - TCP -> reliable, UDP -> speed (voice or video traffic)
 
 3. Network

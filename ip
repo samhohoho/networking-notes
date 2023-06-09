@@ -1,0 +1,9 @@
+IP address assignment
+  - static addressing
+  - dynamic addressing
+    - uses protocol DHCP (Dynamic Host Configuration Protocol)
+    - to automatically assign
+
+IPv4
+  - octet 0 - 255
+  - 

@@ -1,0 +1,15 @@
+Mask/Subnet Mask/Network Mask
+  - a value to divide IP address to 2 parts
+    - network address
+    - host address
+  - defines network-host address boudary
+  - always begins with a contiguous block of 1's
+  - allow host to send traffic to host on same subnet via switches.
+    otherwise, router.
+  - local router = default gateway
+  - isSameSubnet = source IP === dst IP
+  - 32bits long, dotted decimal/slash notation
+
+Host address
+  - must be unique, no all 0's or 1's
+  - must be 1 to 254

@@ -28,6 +28,9 @@ more flash:filename: read config file
 
 Ctrl A: start of the line
 
+Notes
+  - use show command after enable
+
 Global configuration mode
   - do command: work from any level, except priviledged exec mode
   - show command doesnt work

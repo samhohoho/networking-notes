@@ -40,3 +40,27 @@ UDP vs TCP
   - TCP -> reliability
     very slow for video due to extra overhead
   - UDP -> real time app (video or voice)
+
+IP (Internet Protocol)
+  - layer 3 protocol
+  - connectionless protocol, no acknowledgement
+
+IP Header
+  - a component of the IP added to the beginning of data packet.
+  - provide addressing, routing, and control info for data transmission.
+  - includes:
+    - version: IPv4 or IPv6
+    - Header length
+    - differentiated service (DSCP): QoS
+    - explicit congestion notification: transmission rate adjustment
+    - total length: header & data payload
+    - identification, flags, fragmentation offset: fragmentation, reassembly, & order.
+    - time to live (TTL): max number of network hops (routers) a packet can transverse.
+    - protocol: specifies protocol to help receiver's interpretion.
+    - header checksum: to detect error/corruption by verifying the header integrity.
+    - source and destination IP address: sender and recipient.
+
+IP Addressing
+  - principal communication protocol
+  - partition network into subnets.
+    improve performance & security

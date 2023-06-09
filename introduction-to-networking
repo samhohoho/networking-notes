@@ -10,6 +10,7 @@ Switch
   - To allow connectivity on my Local Area Network.
 Router
   - To route traffic between different areas of your network.
+  - link different subnets and route traffic between them.
 Firewall
   - Between Router and Internet.
 
