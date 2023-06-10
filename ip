@@ -1,3 +1,5 @@
+ping 127.0.0.1 to test TCP/IP on local
+
 IP address assignment
   - static addressing
   - dynamic addressing
@@ -5,5 +7,44 @@ IP address assignment
     - to automatically assign
 
 IPv4
+  - 32bit address
   - octet 0 - 255
+  - 
+
+Class A
+  - for networks with many hosts
+  - 1st octet -> network portion
+    rest -> host portion
+  - 1st bit always 0
+  - default subnet mask = /8
+  - valid network address
+    - 1.0.0.0 to 126.0.0.0/8
+  - reserved
+    - 0.0.0.0/8 = 'this network' used by protocol 
+    - 127.0.0.0/8 for loopback address
+  - not valid host addresses
+    - 127.0.0.1 to 127.255.255.255
+
+Class B
+  - first 2 octets -> network portion
+  - 128.0.0.0 to 191.255.0.0
+
+Class C
+  - first 3 bits always 1 1 0
+  - 192.0.0.0 to 223.255.255.0
+
+Class D
+  - reserved for IP multicast addresses
+  - first 4 bits first octet always 1 1 1 0
+  - 224.0.0.0 to 239.255.255.255
+  - not to host and no default subnet mask
+
+Reserved private address
+  - can be assigned to host
+  - not routable on public internet
+  - class a 10.0.0.0 to 10.255.255.255
+  - b 172.16.0.0 to 172.31.255.255
+  - c 192.168.0.0 to 192.168.255.255
+IPv6
+  - 128bit address
   - 
