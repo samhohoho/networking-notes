@@ -1,4 +1,7 @@
 ping 127.0.0.1 to test TCP/IP on local
+The first and last addresses are typically reserved for network and broadcast addresses.
+The address range for the network 192.168.0.0/24 is from 192.168.0.0 to 192.168.0.255.
+  - the first 3 octets reserved for network and subnet portions
 
 IP address assignment
   - static addressing
@@ -39,6 +42,10 @@ Class D
   - 224.0.0.0 to 239.255.255.255
   - not to host and no default subnet mask
 
+Class E
+  - 1 1 1 1
+  - 240.0.0.0 to 255.255.255.255
+
 Reserved private address
   - can be assigned to host
   - not routable on public internet
@@ -47,4 +54,28 @@ Reserved private address
   - c 192.168.0.0 to 192.168.255.255
 IPv6
   - 128bit address
+  - 
+
+CIDR Classless Inter-Domain Routing
+  - rm fixed /8, /16, /24
+    split or subnet into smaller networks
+  - more flexible and efficient 
+  - VLSM (Variable-length subnet mask)
+    - no strict boundaries between address classes
+  - address aggregation / route summarization
+    - multiple small network blocks to large block
+    - reduce routing table entries
+    - improve routing efficiency
+    - without:
+      - many routing entries
+      - increase overhead in routing table updates
+    - allow routers to route traffic to the aggregated network via single entry
+    - conserve IP address space
+    - reduce globally unique network addresses required for routing
+
+Subnetting
+  - subnet / subnetwork
+  - rather than separate networks, subnet a single range into smaller portions.
+  - a portion of host bits is allocated for subnet ID
+    remaining bits for host ID.
   - 
