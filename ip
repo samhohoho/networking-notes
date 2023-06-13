@@ -102,3 +102,21 @@ Subnetting Class C network
     - supported on Cisco routers for point to point links
     - no need for a network or broadcast address
 
+Subnetting examples
+  - The engineering departments in both sites have 28 hosts.
+    - allocated 200.15.10.0/24 
+    - /27 (or 255.255.255.224) supports 32-2 hosts
+    - New York Subnet
+      - network address: 200.15.10.0/27
+      - broadcast address: 200.15.10.31
+      - hosts: 200.15.10.1 to 30
+    - Boston Subnet
+      - network address: 200.15.10.32/27
+      - broadcast address: 200.15.10.63
+      - hosts: 200.15.10.33 to 62
+
+Subnetting design steps
+  - start with largest segment
+  - big enough subnet size for growth
+  - spare subnets for growth
+  - design for future
