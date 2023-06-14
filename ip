@@ -151,6 +151,13 @@ Subnetting examples 1 Network Topology Diagram
   - point to point link left interface: 200.15.10.97
   - point to point link right interface: 200.15.10.98
 
+Subnetting Class B on 4th octet
+  - For IP address 135.15.138/29
+  - network address: 135.15.10.136
+    8*n, not 1*n
+  - broadcast address: 135.15.10.143
+  - host addresses: 135.15.10.137 to 142
+
 Subnetting design steps
   - start with largest segment
   - big enough subnet size for growth
