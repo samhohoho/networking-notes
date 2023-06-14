@@ -1,6 +1,9 @@
 exam
   - always use /30 instead of 31
 
+The magic number method
+  - network address goes up in multiples of (256 - 248)
+
 ping 127.0.0.1 to test TCP/IP on local
 The first and last addresses are typically reserved for network and broadcast addresses.
 The address range for the network 192.168.0.0/24 is from 192.168.0.0 to 192.168.0.255.
@@ -152,11 +155,20 @@ Subnetting examples 1 Network Topology Diagram
   - point to point link right interface: 200.15.10.98
 
 Subnetting Class B on 4th octet
-  - For IP address 135.15.138/29
+  - For IP address 135.15.10.138/29
   - network address: 135.15.10.136
     8*n, not 1*n
   - broadcast address: 135.15.10.143
   - host addresses: 135.15.10.137 to 142
+
+Subnetting Class A on 4th octet
+  - class A 60.0.0.0/8
+    - hosts per subnet: 256-240-2 = 16
+    - subnets amount: 2^20 = 1048576
+  - 60.15.10.75/28
+    - network address: 60.15.10.64
+    - broadcast address: 60.15.10.79
+    - host addresses: 60.15.10.65 to 78
 
 Subnetting design steps
   - start with largest segment
