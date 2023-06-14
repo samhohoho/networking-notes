@@ -102,7 +102,7 @@ Subnetting Class C network
     - supported on Cisco routers for point to point links
     - no need for a network or broadcast address
 
-Subnetting examples
+Subnetting examples 1
   - The engineering departments in both sites have 28 hosts.
     - allocated 200.15.10.0/24 
     - /27 (or 255.255.255.224) supports 32-2 hosts
@@ -114,6 +114,42 @@ Subnetting examples
       - network address: 200.15.10.32/27
       - broadcast address: 200.15.10.63
       - hosts: 200.15.10.33 to 62
+  - New York Sales requires 14 hosts
+    - allocated 200.15.10.0/24
+    - /28 (255.255.255.240) supports 14 hosts
+    - 200.15.10.0 to 200.15.10.63 being used by engineering dept.
+      Network starts at 200.15.10.64
+    - broadcast address: 200.15.10.79
+    - host addresses: 200.15.10.65 to 78
+  - Boston Sales departments requires 7 hosts
+    - allocated 200.15.10.0/24
+    - /29 does not support 8 hosts!
+      REMEMBER TO SUBTRACT 2 FOR THE NETWORK AND BROADCAST ADDRESS.
+    - /28 (255.255.255.240) supports 14 hosts
+    - Network starts at 200.15.10.80
+    - broadcast address: 200.15.10.95
+    - host addresses: 200.15.10.81 to 94
+  - New York to Boston Link
+    - the link between the New York and Boston routers
+    - allocated 200.15.10.0/24
+    - /30 (255.255.255.252) supports 2 hosts
+    - network address: 200.15.10.96
+    - broadcast address: 200.15.10.99
+    - host addresses: 200.15.10.97 to 200.15.10.98
+
+Subnetting examples 1 Network Topology Diagram
+  - New York: 200.10.15.0/27
+  - Boston: 200.15.10.32/27
+  - New York Sales: 200.15.10.64/28
+  - Boston Sales: 200.15.10.80/28
+  - point to point: 200.15.10.96/30
+  - use first available IP address on router interfaces
+  - New York engr interface: 200.15.10.1
+  - Boston engr interface: 200.15.10.33
+  - New York Sales interface: 200.15.10.65
+  - Boston sales interface: 200.15.10.81
+  - point to point link left interface: 200.15.10.97
+  - point to point link right interface: 200.15.10.98
 
 Subnetting design steps
   - start with largest segment
