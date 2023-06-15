@@ -1,3 +1,6 @@
+host
+  - any device, server, web browser, or computer that is connected to a network.
+  - each identified by unique IP address
 Local Area Network (LAN)
   - A network that connects devices which are in the same local area (like Uni campus).
 
