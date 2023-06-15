@@ -80,11 +80,21 @@ The Upper OSI Layers
     - Routers
 
 2. The data link
+  - the Ethernet medium on LAN
+  - Ethernet header
+    - preamble: synchronize
+    - dst address
+    - src address
+    - length/ethertype
+    - data
+    - FCS frame check sequence: integrity check
   - Similar to Network layer.
   - Facilitate data transfer between 2 devices on the same networks.
   - Break up Packets into smaller pieces (Frames).
   - Responsible for Flow Control and Error Control in intra-network communication.
   - Check MAC address, discard packets if mismatch.
+  - frames are encoded and decoded
+  - provides error detection and correction for Physical layer.
   - Includes 
     - MAC address if sending over an Ethernet network.
     - Switches.
@@ -97,3 +107,12 @@ The Upper OSI Layers
   - Convert data into a bit stream, which is a string of 1s and 0s.
   - Includes
     - Hub
+
+Media Access Control MAC address
+  - ethernet uses 48bit (6 bytes * 8 bits) hexadecimal MAC address
+  - 1st 24 bits: OUI organizationally unique identifier
+    - identifies manufacturer of ethernet port
+    - assigned by IEEE
+  - last 24 bits: vendor assigned
+  - addresses number: 2^48
+  no logical addressing, just address space
