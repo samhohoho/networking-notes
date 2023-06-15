@@ -170,8 +170,42 @@ Subnetting Class A on 4th octet
     - broadcast address: 60.15.10.79
     - host addresses: 60.15.10.65 to 78
 
+Subnetting Class A on 3rd octet
+  - 60.0.0.0/8
+    - /19
+    - subnets amount: 2^11
+    - hosts amount: 2^(13-2)
+  - 60.15.10.75/19
+    - network address: 60.15.0.0
+    - broadcast address: 60.15.31.255
+    - host addresses: 60.15.0.1 to 60.15.31.254
+
+More examples
+  - subnet the 134.65.0.0 network into 6 different networks
+  - subnet mask: /19
+  - network address: 134.65.0.0, 134.65.32.0, 134.65.64.0 etc
+  - 8190 hosts in each subnet 2^13 - 2
+
 Subnetting design steps
   - start with largest segment
   - big enough subnet size for growth
   - spare subnets for growth
   - design for future
+
+RFC 1918 Private Addresses
+  - private address ranges documented by the
+    IETF (Internet Engineering Task Force) in RFC 1918.
+  - RFC (request for comments)
+  - documentation is released as an RFC number by IETF
+  - RFC 1918, the final standard for private IP addressing
+  - no internet connection
+  - security benefit of hiding hosts
+  - class A
+    - 10.0.0.0 to 10.255.255.255
+    - 10.0.0.0/8 10.0.0.0 255.0.0.0
+  - class B
+    - 172.16.0.0 to 172.31.255.255
+    - 172.16.0.0/12 172.16.0.0 255.240.0.0
+  - class C
+    - 192.168.0.0 to 192.168.255.255
+    - 192.168.0.0/16 255.255.0.0
