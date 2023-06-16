@@ -1,0 +1,63 @@
+Hubs similar to switches
+End hosts in LAN commmunicate through hub or switch.
+Inter-switch links
+  Switches connection with ethernet cables.
+
+Hubs
+  Half-duplex mode
+    Hosts either send or receive, no simultaneously
+  All hosts same collision domain
+    one device transmit at a time
+    if > 1, resend
+    CSMA/CD Carrier-sense multiple access / collision detection
+      detect collisions and resend
+  broadcast commmunication
+  shared bandwidth
+  no packet filtering based on MAC address
+  simply physical connection point for devices
+
+Switches
+  connects devices in LAN
+  facilitate the efficient forwarding of data packets between devices
+  either full-duplex or half-duplex
+  hosts own dedicated collision domain
+  no collision detection
+  operates at layer 1 and 2
+  MAC address learning
+    add MAC address table upon received which maps MAC addresses to ports
+  better performance security
+  if received broadcast address or unknown unicast dst
+    flood out all ports except receiver
+
+Router
+  layer 3
+  determines most appropriate path
+  send traffic from subnet to another
+  doesnt forward broadcast traffic by default
+  NAT network address translation
+    devices share a single public IP address
+  firewalling
+    unauthorized access and malicious activities
+  QoS quality of service
+    prioritize specific network traffic type
+
+Cisco ASA (adaptive sec appliance) firewalls
+
+Cisco SourceFire FirePower IPS (intrusion prevention system)
+
+Cisco wireless LAN controllers
+
+Cisco wireless access points
+
+Cisco Unified commmunication manager
+  software product, IP-based PBX
+
+Cisco IP phones
+
+Cisco telepresence
+
+Cisco WebEx
+
+Cisco UCS (unified computing system)
+
+Cisco Nexus switches
