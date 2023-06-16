@@ -105,8 +105,27 @@ The Upper OSI Layers
   - Includes physical equipment involved in data transfer.
     Cables and switches.
   - Convert data into a bit stream, which is a string of 1s and 0s.
+  - conveys the bit stream, electrical impulse, light or radio signals
+    through the network at the electrical and mechanical level.
   - Includes
     - Hub
+
+Ethernet Connection Media
+  - for connecting devices in a LAN
+  - physical medium
+    - copper-based twisted-pair cables (computer to switches)
+    - fibre optic
+  - newer CAT has higher bandwidth connections
+  - straight-through cables for end device to switch
+  - crossover cables for same devices
+  - modern switches support Auto MDI-X
+  - connector type is RJ-45; max-length 100m; plug to switch
+  - fibre cables
+    - longer distance
+    - higher bandwidth requirements
+    - plug to transceiver then switch
+  - PoE (power over ethernet) switch:
+    - power connected devices
 
 Media Access Control MAC address
   - ethernet uses 48bit (6 bytes * 8 bits) hexadecimal MAC address
