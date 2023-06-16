@@ -1,0 +1,14 @@
+layer 3
+  src & dst IP address
+  FQDN fully qualified domain name
+    www.example.com
+      www - hostname
+      example.com - domain name
+  DNS resolves a FQDN
+    DNS server: translate domain names into IP addresses
+    process:
+      DNS query to DNS server
+      caching: cache previous query results
+      client establish connection using IP address
+
+
