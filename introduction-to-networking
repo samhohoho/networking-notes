@@ -56,3 +56,22 @@ Network Interface, aka NIC (network interface card)
   Manages data flow based on network protocols.
   Network configuration.
     IP address, subnet mask, gateway, DNS servers.
+
+
+ARP address resolution protocol
+  Maps IP address to MAC address.
+  Mainly IPv4 and local networks.
+  To check cache in linux:
+    arp -n: view ARP cache.
+    ip -s -s neigh flush all: clear cache.
+  Process:
+    ARP request.
+      Device checks ARP cache (table that stores ARP mappings).
+      If not found, broadcast message and asking "who the fuck has this IP address)
+    ARP reply
+      Include its MAC address.
+      The requesting device to update its ARP cache.
+    ARP caching
+    ARP resolution
+      The sending device encapsulate data into ethernet frame, including MAC address.
+      The receiving device uses MAC address to deliver to the correct network interface.
