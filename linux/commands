@@ -7,3 +7,7 @@ uname -a: Display detailed info about the OS.
 dig: Look up the IP address of a domain or host.
 
 ping: Send a series of network packets to test network connectivity.
+
+To check cache in linux:
+  arp -n: view ARP cache.
+  ip -s -s neigh flush all: clear cache.
