@@ -61,6 +61,8 @@ Network Interface, aka NIC (network interface card)
 ARP address resolution protocol
   Maps IP address to MAC address.
   Mainly IPv4 and local networks.
+  If different IP subnet,
+    ARP request for its default gateway.
   To check cache in linux:
     arp -n: view ARP cache.
     ip -s -s neigh flush all: clear cache.
