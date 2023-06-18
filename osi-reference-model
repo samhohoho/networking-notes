@@ -1,5 +1,17 @@
 https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
 
+Encapsulation
+  Process of enclosing data within a protocol header as it travels through the network layers.
+  To add info and control parameters to data for proper transmission and delivery to dst.
+  The header contains control info
+    Source and dst addresses, sequence numbers, error detection codes, and protocol-specific parameters.
+
+DNS domain name system
+  Maintains a mapping of FQDNs to IP addresses.
+
+ARP address resolution protocol
+  Map the IP address to MAC address.
+
 OSI (Open Systems Interconnect) Model
   - A standard of the International Organization for Standardization (ISO).
   - Standardize how computers communicate with one another over a network.
