@@ -42,3 +42,17 @@ Reliability
 Production Network
   - In band
   - The cables normal users would use.
+
+Network Interface, aka NIC (network interface card)
+  Hardware component that allows device to connect and communicate with a network.
+  Data transmission and reception.
+  Resides on motherboard or expansion card.
+  Connects to network medium, like Ethernet cables/wireless signals.
+  Provide hardware and software for communication.
+  Has unique MAC address.
+  Converts digital data into electrical signals or radio waves.
+  Encapsulates data into frames/packets.
+  Adds headers.
+  Manages data flow based on network protocols.
+  Network configuration.
+    IP address, subnet mask, gateway, DNS servers.
