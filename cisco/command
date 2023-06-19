@@ -31,3 +31,44 @@ After the DNS client commands.
 
 show arp: view ARP cache
 clear arp-cache: clear ARP cache
+
+Router configuration, global configuration mode
+  IP address
+    interface FastEthernet0/0
+      Interface configuration mode
+    ip address 192.168.0.1 .255.255.255.0
+    no shutdown
+      Interfaces are shutdown by default.
+  Setup wizard
+    Router> en
+    Router# setup
+
+Switch
+  IP address
+    Switch (config)# interface vlan 1
+    Switch (config-if)# ip address 192.168.0.10 255.255.255.0
+    Switch (config-if)# no shutdown
+    Switch (config-if)# exit
+    Switch (config)# ip default-gateway 192.168.0.1
+  Hostname
+    Switch (config)# hostname SW1
+    SW1 (config)
+  Description
+    SW1 (config)# interface FastEthernet 0/1
+    SW1 (config-if)# description Link to R1
+  Interface speed and duplex
+    SW1 (config)# interface FastEthernet 0/1
+    SW1 (config-if)# duplex full
+    SW1 (config-if)# speed 100
+  Verification commands
+    SW1# show running-config
+      Show entire configuration.
+      Spacebar for page down.
+    SW1# show ip interface brief
+    SW1# show run interface vlan 1
+    SW1# show interface vlan 1
+    SW1# sh int fast0/1
+      Shows MAC and IP addresses, traffic statistic.
+      Useful for troubleshooting int.
+    SW1# show version
+
