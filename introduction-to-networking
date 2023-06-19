@@ -77,3 +77,29 @@ ARP address resolution protocol
     ARP resolution
       The sending device encapsulate data into ethernet frame, including MAC address.
       The receiving device uses MAC address to deliver to the correct network interface.
+
+ARP for routed traffic
+  Src and dst IPs never change.
+  Process:
+    Source device ARP resolution.
+      Check ARP cache for MAC address of next-hop router.
+      Determine the MAC address of the next-hop router (default gateway)
+    ARP request broadcast
+      If no next-hop router MAC address in cache,
+      source device initiates ARP request by broadcast message on local network.
+      The request includes next-hop router IP address and source device MAC address.
+    ARP reply from next-hop router
+      The reply contains the MAC address of the router.
+      The source then stores MAC address.
+    Routing decision
+      Encapsulates data, adds headers.
+      Sends to the next-hop router MAC address.
+    Next-hop router ARP resolution
+      Perform similar ARP resolution process,
+      determine MAC address of next-hop router or dst device.
+    ARP reply to next-hop router
+      Device with corresponding IP address responds with MAC address.
+      next-hop router receives and stores MAC address.
+    Forwarding data to dst
+      Next-hop router encapsulates packets with routing headers.
+
