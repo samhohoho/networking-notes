@@ -1,0 +1,33 @@
+router DNS commands
+  to config router to resolve FQDNs itself
+
+show running-config | include ip domain-name
+  view configured domain name
+
+To make router as DNS client:
+Often we only work with IP addresses
+	ip domain-lookup
+    enable DNS resolution on router for hostnam-to-IP address translation.
+    when enabled, ping example.com.
+    resolve example.com using DNS first, command second.
+    error message if DNS resolution failed.
+	ip name-server 172.23.4.1 (primary domain name)
+    configure DNS server IP addresses
+	ip domain-name flackboxA.lab (additional DNS suffix to search)
+    configure the default domain name for the device.
+    When ip domain-lookup enabled,
+      it will append the default domain name to the hostname.
+      ping router1 -> resolve router1.example.com
+  copy running-config startup-config
+    save the config to the router's startup config
+  test with ping or nslookup followed by a hostname.
+
+To make router as DNS server:
+After the DNS client commands.
+  ip dns server
+    configure it as a DNS server
+  ip host LinuxA 172.23.4.2
+    address records to be resolved
+
+show arp: view ARP cache
+clear arp-cache: clear ARP cache
