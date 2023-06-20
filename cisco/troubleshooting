@@ -1,0 +1,85 @@
+Connectivity troubleshooting methods
+  ping
+    checks connectivity.
+    Uses ICMP.
+  traceroute
+    Does ping, hop by hop, from src to dst.
+    Indicate which router has problem.
+  telnet
+    To manage network infra devices.
+    To check if a port is open.
+
+Past problems
+  IP connectivity issue
+    ping R3
+      Unrecognized host or address, or protocol not running.
+    ping 10.10.30.1
+      Unreachable, success rate is 0 percent (0/5)
+    traceroute 10.10.30.1
+      R2 not working.
+      Into R2.
+      Ping to R3 failed.
+    sh ip route
+      To check routing table.
+      No route to 10.10.30.0
+    config t
+    ip route 10.10.30.0 255.255.255.0 10.10.20.1
+      Enter a static route.
+      10.10.20.1: R3 interface on subnet.
+
+CDP Cisco Discovery Protocol
+  Proprietary layer 2 protocol.
+  For network discovery and management on Cisco devices.
+  Allows devices to exchange info with directly connected Cisco devices.
+  Enabled by default
+  Runs on most Cisco networking equipment.
+  CDP messages are sent every 60 seconds by default.
+  LLDP link layer discovery protocol, similar protocol.
+  Should detect duplex mismatch.
+  Neighbour discovery
+    Identify neighbouring device connected to their interfaces.
+    Info like device type, model, capabilities, the interfaces.
+  Topology Discovery
+    Understanding network layout and connections.
+  Device Monitoring
+    Monitoring status of neighbouring devices.
+      Availability and operational state.
+  Network Troubleshooting
+  Automatic config
+
+Troubleshooting
+  Switch# show interface
+    Interface is reporting errors, either layer 1 or 2 issue.
+    Check cable integrity.
+    Check config matches.
+
+Speed and Duplex mismatch
+  Interface operate below its max speed.
+  Both sides must be same, either auto or manually configured.
+  Best practice is to manually configure ports.
+
+Layer 2 troubleshooting
+  Common commands
+		Switch (config)# cdp run
+		Switch (config)# no cdp run
+      Disable globally on device.
+		Switch (config-if)# no cdp enable
+      Disable at interface level.
+		Switch# show cdp
+		Switch# show cdp neighbours
+		Switch# show cdp neighbours detail
+
+Layer 1 troubleshooting
+  Common problems
+    Interface is administratively shut down.
+    Cable is disconnected.
+    Broken connectors, wires or fibres.
+    EMI Electro-Magnetic Interference sources.
+      Such as motors or microwaves.
+      Cause errors in transmission.
+  Common commands
+    Switch# show ip interface brief
+      administratively down - issue 'no shutdown'
+      down/down - layer 1 issue, check interface is cabled, device's power.
+      up/down - layer 2 issue, speed mismatch.
+        show run to check config on both interfaces.
