@@ -3,6 +3,7 @@ End hosts in LAN commmunicate through hub or switch.
 Inter-switch links
   Switches connection with ethernet cables.
 
+
 Hubs
   Half-duplex mode
     Hosts either send or receive, no simultaneously
@@ -61,3 +62,36 @@ Cisco WebEx
 Cisco UCS (unified computing system)
 
 Cisco Nexus switches
+
+- DEVICE MANAGEMENT
+
+Memory
+  Cisco routers and switches have 4 built-in memory locations.
+  ROM Read Only Memory
+    First load from ROM on startup.
+    POST Power On Self Test.
+    Load bootstrap.
+      Load IOS software image from Flash.
+        boot system - ovverride.
+        Can copy additional IOS system images to Flash via TFTP/USB.
+      Show ROMMON prompt if IOS image cannot be found.
+      ROM monitor to recover missing/corrupted software image.
+      Can boot from USB/external TFTP (Trivial File Transfer Protocol) server.
+      Search 'Cisco ROMMON Recovery' for device model.
+  Flash / CompactFlash (newer)
+  NVRAM Non-Volatile RAM
+    System loads startup-config configuration file from NVRAM.
+      If no startup-config, load Setup Wizard.
+    Saved startup-config becomes current runnning-config in RAM.
+    Command takes effect immediately and saved in runnning-config.
+    To make permanent reboot changes:
+      copy runnning-config startup-config
+  RAM Random Access Memory
+    Normal working memory.
+    ROM, Flash and NVRAM are permanent memory.
+    RAM is volatile memory, data lost on reboot.
+  VLAN database
+    vlan.dat file
+    Saved in Flash or NVRAM, based on switch model.
+
+
