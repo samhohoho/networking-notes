@@ -141,3 +141,16 @@ Backing up configuration in lab env
   copy flash start
   reload
 
+Upgrading IOS system image
+  Select switch model.
+  Get new IOS software images from Cisco website.
+    https://software.cisco.com
+  Copy to TFTP server.
+  Download it to Flash from TFTP.
+  Del the old system image or use boot system command.
+    Commands
+      config t
+      boot system flash:...
+      end
+      copy run start
+      reload
