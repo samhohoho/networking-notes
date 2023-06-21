@@ -9,7 +9,15 @@ sh start
   Show startup-config.
 reload
 
-config t - enter configuration 
+no enable secret - remove password
+
+Set a password for enable prompt
+  enable password is a legacy command.
+  enable secret is in encrypted form.
+  Commands
+		config t - enter configuration 
+		enable password Flackbox1
+		enable secret Flackbox2
 
 router DNS commands
   to config router to resolve FQDNs itself
