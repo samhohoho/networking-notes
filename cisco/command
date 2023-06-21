@@ -1,8 +1,18 @@
-router DNS commands
-  to config router to resolve FQDNs itself
+sh version - view system image
+sh flash - show system images.
+delete flash ... - del file in flash memory
 
 show running-config | include ip domain-name
   view configured domain name
+sh run
+sh start
+  Show startup-config.
+reload
+
+config t - enter configuration 
+
+router DNS commands
+  to config router to resolve FQDNs itself
 
 To make router as DNS client:
 Often we only work with IP addresses
@@ -43,6 +53,10 @@ Router configuration, global configuration mode
     Router> en
     Router# setup
 
+CDP Cisco Discovery Protocol
+  To share info with other Cisco equipment.
+  Map out how devices are connected.
+
 Switch
   IP address
     Switch (config)# interface vlan 1
@@ -71,4 +85,36 @@ Switch
       Shows MAC and IP addresses, traffic statistic.
       Useful for troubleshooting int.
     SW1# show version
+  CDP Cisco discovery Protocol
+    Switch (config)# cdp run
+    Switch (config)# no cdp run
+    Switch (config-if)# no cdp enable
+    Switch# show cdp
+    Switch# show cdp neighbours
+    Switch# show cdp neighbours detail
 
+Factory Reset router/switch
+  write erase
+    In enable prompt, it erases the startup-config.
+  Reload to boot up with blank config.
+  Setup wizard will run.
+
+The Config Register
+  To change the way router boots.
+  0x2102 - boot normally (default)
+  0x2120 - boot into rommon
+  0x2142 - ignore NVRAM contents (startup-config)
+  Commands:
+    show version | include Configuration register
+    config-register 0x2142 or confreg (rommon prompt)
+  Router enable password recovery procedure:
+    Press Ctrl-Break break sequence at power on to break into rommon prompt.
+    confreg 0x2142 
+    reset
+    Router bootup with no config.
+    Press no to by pass setup wizard.
+    Enter enable mode.
+    Copy startup config to running config. (IMPORTANT)
+    Enter a new enable secret in global config mode.
+    config-register 0x2102 - boot normally
+    copy run start - save config.
