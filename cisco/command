@@ -133,3 +133,11 @@ Backing up the System Image and Configuration
     copy running-config tftp
     copy startup-config usd
 
+Backing up configuration in lab env
+  Set up the starting configuration.
+  Copy to Flash.
+  Continue with any changes.
+  write erase - to erase the startup-config.
+  copy flash start
+  reload
+
