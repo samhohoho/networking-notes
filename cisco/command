@@ -126,3 +126,10 @@ The Config Register
     Enter a new enable secret in global config mode.
     config-register 0x2102 - boot normally
     copy run start - save config.
+
+Backing up the System Image and Configuration
+  Commands
+    copy flash tftp
+    copy running-config tftp
+    copy startup-config usd
+
