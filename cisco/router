@@ -1,0 +1,32 @@
+Configures IP address on router interfaces
+  Commands
+    interface FastEthernet0/0
+    ip address 10.0.0.1 255.255.255.0
+
+Main functions
+  Determine best path to available networks.
+  Forwarding traffic
+
+Routing table
+  Store best available paths to a destination network.
+  Consists of 
+    Directly connected networks
+    Statically configured routes or dynamically learned thru protocol.
+
+Connected routes
+  When network interface device active &&
+  has IP address
+    Automatically created in routing table.
+    Based on network address and subnet mask of connected interface.
+  Indicates device is connected to specified network.
+  Example:
+    Router has interface 192.168.1.1/24
+    Automatically add connected route to 192.168.1.0/24 network in table.
+    If any traffic for 192.168.1.0/24 network is received on another interface,
+      it will forward to the proper network.
+  Commands:
+    sh ip route - view routing table
+    
+Local routes
+  From IOS 15
+  To show actual IP address on interface.
