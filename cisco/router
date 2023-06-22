@@ -47,6 +47,11 @@ Longest prefix match
   Match the dst IP address with most specific prefix in routing table.
   "longest" refers to network prefix with highest number of matching bits.
 
+Load balancing
+  Route and prefix have to be same.
+  Command same as static route.
+  Based on hash between 2 hosts.
+
 Default route
   AKA default gateway / default gateway route.
   To forward network traffic when no specific match for dst IP address.
