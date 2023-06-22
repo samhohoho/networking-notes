@@ -1,7 +1,13 @@
+Commands:
+  sh ip int brief
+
 Configures IP address on router interfaces
   Commands
+    config t
     interface FastEthernet0/0
     ip address 10.0.0.1 255.255.255.0
+    no shut
+    end
 
 Main functions
   Determine best path to available networks.
@@ -30,3 +36,15 @@ Connected routes
 Local routes
   From IOS 15
   To show actual IP address on interface.
+
+Static routes
+  Has to be reachable on directly connected interfaces.
+  Commands:
+    ip route 10.1.0.0 255.255.255.0 10.0.0.2
+
+Longest prefix match
+  Determine best matching route.
+  Match the dst IP address with most specific prefix in routing table.
+  "longest" refers to network prefix with highest number of matching bits.
+
+
