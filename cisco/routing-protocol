@@ -1,0 +1,30 @@
+Introduction
+  Types:
+    IGP Interior gateway protocols
+      For within an organization.
+    EGP Exterior gateway protocols
+      Between organizations over internet.
+      Only used today is BGP Border Gateway Protocol.
+  Determine best path for data packets to destination.
+  Employ algorithms and metrics to make routing decision.
+  Based on network congestion, link reliability, and administrative preferences.
+  Automatically update when subneet is removed.
+
+RIP Routing information protocol
+  Oldest.
+  Commands:
+    debug ip rip
+
+Interior gateway protocols
+  Only share info with neighbours.
+  Distance vector routing protocols
+    Routing by rumour.
+    Uses hop count as metric.
+    Exchanges routing table between routers at regular interval.
+  Link state routing protocols
+    Operates within an AS Autonomous system.
+    Uses SPF Shortest path first algorithm
+      to calculate best path based on cost.
+    Routers exchange LSA link-state advertisements
+      to build and maintain topology database.
+      allow each router to have complete network map.
