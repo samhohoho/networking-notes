@@ -47,4 +47,11 @@ Longest prefix match
   Match the dst IP address with most specific prefix in routing table.
   "longest" refers to network prefix with highest number of matching bits.
 
-
+Default route
+  AKA default gateway / default gateway route.
+  To forward network traffic when no specific match for dst IP address.
+    Indicating matches any IP address (0.0.0.0 to 255.255.255.255).
+    Becuz subnet mask is all zero.
+  The last resort or fallback option.
+  Example:
+    ip route 0.0.0.0 0.0.0.0 203.0.113.2
