@@ -1,6 +1,8 @@
 sh version - view system image
 sh flash - show system images.
 delete flash ... - del file in flash memory
+show ip route - 
+debug
 
 show running-config | include ip domain-name
   view configured domain name
@@ -8,6 +10,19 @@ sh run
 sh start
   Show startup-config.
 reload
+
+sh run int f2/0
+
+Router commands, global configuration mode
+  IP address
+    interface FastEthernet0/0
+      Interface configuration mode
+    ip address 192.168.0.1 .255.255.255.0
+    no shutdown
+      Interfaces are shutdown by default.
+  Setup wizard
+    Router> en
+    Router# setup
 
 no enable secret - remove password
 
@@ -49,17 +64,6 @@ After the DNS client commands.
 
 show arp: view ARP cache
 clear arp-cache: clear ARP cache
-
-Router configuration, global configuration mode
-  IP address
-    interface FastEthernet0/0
-      Interface configuration mode
-    ip address 192.168.0.1 .255.255.255.0
-    no shutdown
-      Interfaces are shutdown by default.
-  Setup wizard
-    Router> en
-    Router# setup
 
 CDP Cisco Discovery Protocol
   To share info with other Cisco equipment.
