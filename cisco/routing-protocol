@@ -58,3 +58,15 @@ IS-IS Intermediate system to Intermediate system
   Operates at OSI layer 2.
   Uses SPF algorithm and LSPs link-state packets
     Build and maintain a network topology.
+  Uses administrative distance metric to best path.
+    Default by hop counts, unless costs on links configured.
+    Based on link bandwidth, reliability, and administrative preferences.
+  If required path manipulation,
+    configure cost of links.
+
+EIGRP Enhanced interior gateway routing protocol
+  Metric based on bandwidth, delay, reliability, and load.
+    Load and reliability are ignored by default.
+  Path manipulation:
+    Configure delay on links.
+  Only supports cisco router.
