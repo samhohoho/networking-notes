@@ -9,22 +9,52 @@ Introduction
   Employ algorithms and metrics to make routing decision.
   Based on network congestion, link reliability, and administrative preferences.
   Automatically update when subneet is removed.
-
-RIP Routing information protocol
-  Oldest.
   Commands:
-    debug ip rip
+    sh run | section rip
+    sh run | begin rip
+
+Metric
+  Lowest metric value is preferred.
 
 Interior gateway protocols
   Only share info with neighbours.
   Distance vector routing protocols
-    Routing by rumour.
-    Uses hop count as metric.
-    Exchanges routing table between routers at regular interval.
   Link state routing protocols
-    Operates within an AS Autonomous system.
-    Uses SPF Shortest path first algorithm
-      to calculate best path based on cost.
-    Routers exchange LSA link-state advertisements
-      to build and maintain topology database.
-      allow each router to have complete network map.
+    Each router maintains detailed database of network's topology.
+    Database contains all routers, links, and networks.
+    Each router floods LSAs Link-state advertisements to neighbour routers.
+
+RIP Routing information protocol
+  Distance-vector routing.
+  Oldest.
+  Uses hop count as metric.
+  Max hop count by default is 15.
+  Exchanges routing table between routers at regular interval.
+  Updates stop when convergence is reached.
+    All routers have consistent routing information.
+  If a link/network fails,
+    RIP routes mark affected routes as invalid.
+    Then notify neighbours.
+  Routing by rumour.
+  Used in small env.
+  Commands:
+    debug ip rip
+
+OSPF Open Shortest path first
+  Link-state routing protocol.
+  Operates within an AS Autonomous system.
+  Uses SPF Shortest path first algorithm
+    to calculate best path based on cost.
+  Uses cost as metric.
+    Cost refers to overall efficiency to send packets.
+    Higher bandwidth will have lower cost.
+  Routers exchange LSA link-state advertisements
+    to build and maintain topology database.
+    allow each router to have complete network map.
+
+IS-IS Intermediate system to Intermediate system
+  Link-state routing protocol.
+  Common in large service provider networks.
+  Operates at OSI layer 2.
+  Uses SPF algorithm and LSPs link-state packets
+    Build and maintain a network topology.
