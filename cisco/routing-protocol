@@ -115,3 +115,28 @@ Floating static routes
   Backup route for OSPF
     Commands:
       ip route 10.0.1.0 255.255.255.0 10.1.3.2 115
+
+Loopback interface
+  Loopback address/virtual interface, logical interface on network device.
+  Software-based interface in device's OS.
+  Not associated with physical hardware.
+  Created by OS to provide network connectivity within device.
+  Just like regular network interface,
+    but traffics processed internally.
+  Identified by loopback address, IP address.
+    127.0.0.0/8 - range
+    127.0.0.1 - common loopback/localhost address
+  Allow app/service run on device to communicate internally.
+  Internal testing and troubleshooting network services and apps.
+  Network management.
+    SNMP simple network management protocol.
+    Voice over IP, BGP peering etc.
+  Loopback address are used as router ID or OSPF router ID.
+  Stable and unique identifier for device.
+  Routing and redundancy.
+  Commands:
+    interface loopback 0
+    ip address 192.168.1.1 255.255.255.255
+    do sh run | sec eigrp
+    router eigrp 100
+    network 192.168.1.1 0.0.0.0
