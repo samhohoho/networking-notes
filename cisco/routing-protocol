@@ -16,6 +16,11 @@ Introduction
 Metric
   Lowest metric value is preferred.
 
+Flow
+  A sequence of packets share common characteristics.
+  Identified by packet header attributes:
+    Src & dst IP addresses/ports or protocol types.
+
 Interior gateway protocols
   Only share info with neighbours.
   Distance vector routing protocols
@@ -70,3 +75,43 @@ EIGRP Enhanced interior gateway routing protocol
   Path manipulation:
     Configure delay on links.
   Only supports cisco router.
+
+ECMP Equal cost multi-path
+  Routing techniques that allows traffic distribution across same cost/metric paths.
+  Equal cost paths = paths with same metric.
+  Achieve load balancing.
+    Flow-based:
+      Packets belong to same flow.
+      To maintain packets order.
+    Packet-based:
+      Different packets of same flow to diffrent paths.
+  All IGP routing protocols perform ECMP by default.
+  EIGRP can UnEqual cost multi-path.
+    Must Configure.
+
+Administrative distance
+  Determine trustworthiness/reliability of a routing protocol/source.
+    When multiple routing protocols provide info about same destination.
+  Lower administrative distance value indicates higher priority.
+  Default:
+		Connected interface: 0
+		Static route: 1
+		Enhanced Interior Gateway Routing Protocol (EIGRP): 90
+		Open Shortest Path First (OSPF): 110
+		Border Gateway Protocol (BGP): 20
+    IS-IS: 115
+    RIP: 120
+  Allows dynamic adjustments in routing table.
+  CLI:
+    R   10.1.1.0/24 [120/1] via 10.0.0.2
+      120/1 = AD/metric
+
+Floating static routes
+  Backup/secondary route in case primary route invalid.
+  By assigning higher AD to backup static route.
+  Primary route can be:
+    Dynamic route learned from routing protocol.
+    Static route explicitly configured.
+  Backup route for OSPF
+    Commands:
+      ip route 10.0.1.0 255.255.255.0 10.1.3.2 115
