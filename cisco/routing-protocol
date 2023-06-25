@@ -105,6 +105,27 @@ EIGRP Enhanced interior gateway routing protocol
   Path manipulation:
     Configure delay on links.
   Only supports cisco router.
+  Large network, fast convergence time.
+  Multicast.
+  4 equal cost load balancing - default
+  UnEqual cost load balancing.
+    Needs manual config.
+  AS - independent administered domain.
+  Requires same AS number to peer.
+  Wildcard mask - subnet mask inverse 
+    Subtract each octet in subnet mask from 255.
+    0.255.255.255 - default
+  Not advertised:
+    Not in range.
+    Not configured on any interface.
+  Commands:
+    router eigrp 100
+    network 10.0.0.0 0.0.255.255 
+      Interface in 10.0. range.
+  Identify using router ID, IPv4 address.
+    Default loopback address then highest address.
+    Commands:
+      show ip protocols
 
 ECMP Equal cost multi-path
   Routing techniques that allows traffic distribution across same cost/metric paths.
@@ -180,6 +201,10 @@ Passive interface
   Configure loopback interface as passive interface - Best
   Does not routing protocol updates.
   Reduce network overhead and conserving bandwidth.
+  Commands:
+    router rip
+    passive-interface fast3/0
+    network 203.0.113.0
 
 Default route injection
   FInal outbound router, connected to internet.
