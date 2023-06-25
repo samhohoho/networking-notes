@@ -1,13 +1,34 @@
 Connectivity troubleshooting methods
   ping
     checks connectivity.
-    Uses ICMP.
+    Send ICMP echo request packets to dst.
+    Measure round-trip time RTT.
+    Check reachability and network latency.
   traceroute
     Does ping, hop by hop, from src to dst.
     Indicate which router has problem.
+    TTL Time to live
+      Prevent route loop.
+      Decrease by 1 on every hop.
+      Send time exceeded message when packet dropped.
+    A series of packets with increasing TTL values.
+      10 hops = 10 TTL to reach dst.
+    Cr-S-6 to abort.
   telnet
     To manage network infra devices.
     To check if a port is open.
+
+DNS
+  Commands:
+    nslookup
+    ping by FQDN
+
+Extended ping
+  More flexibility.
+  Specify IP address.
+  Packet size.
+  Timeout value.
+  Number of packets.
 
 Past problems
   IP connectivity issue
@@ -58,6 +79,10 @@ Speed and Duplex mismatch
   Both sides must be same, either auto or manually configured.
   Best practice is to manually configure ports.
 
+Layer 4
+  Commands:
+    telnet
+
 Layer 2 troubleshooting
   Common commands
 		Switch (config)# cdp run
@@ -69,6 +94,9 @@ Layer 2 troubleshooting
 		Switch# show cdp neighbours
 		Switch# show cdp neighbours detail
 
+    show arp
+    show mac address-table
+
 Layer 1 troubleshooting
   Common problems
     Interface is administratively shut down.
@@ -78,6 +106,7 @@ Layer 1 troubleshooting
       Such as motors or microwaves.
       Cause errors in transmission.
   Common commands
+    show interface
     Switch# show ip interface brief
       administratively down - issue 'no shutdown'
       down/down - layer 1 issue, check interface is cabled, device's power.
