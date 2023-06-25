@@ -140,3 +140,14 @@ Loopback interface
     do sh run | sec eigrp
     router eigrp 100
     network 192.168.1.1 0.0.0.0
+
+Adjacency
+  Relationship between directly connected devices.
+  Established to facilitate exhange of routing info.
+  By exchanging hello packets.
+
+Passive interface
+  Configure loopback interface as passive interface - Best
+  Does not routing protocol updates.
+  Reduce network overhead and conserving bandwidth.
+
