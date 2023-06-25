@@ -181,3 +181,12 @@ Passive interface
   Does not routing protocol updates.
   Reduce network overhead and conserving bandwidth.
 
+Default route injection
+  FInal outbound router, connected to internet.
+  Prevent default static route on all routers.
+  Internal routers learn automatically.
+  Inject into RIP.
+  Commands:
+    ip route 0.0.0.0 0.0.0.0 203.0.113.2
+    router rip
+    default-information originate
