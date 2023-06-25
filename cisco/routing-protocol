@@ -45,6 +45,36 @@ RIP Routing information protocol
   Commands:
     debug ip rip
 
+***only for CCNA***
+RIPv2 
+  Multicast address 224.0.0.9
+  Authentication, and password.
+    Adjacency with matching password.
+  Classless routing.
+    Subnet info with network address.
+    Finer-grained routing decisions.
+  VLSM and CIDR
+    Network with different subnet mask lengths.
+  Automatic summarize routes to classful boundary.
+    Undesireable, could cause havoc on network.
+    Blackholing, dropping traffic.
+  Network command reference classful network, no subnet mask.
+    10.0.0.0 not 10.1.1.0 
+  Commands:
+    router rip
+    version 2
+    network 10.0.0.0
+
+    no auto-summary
+  All 10. network send hello message.
+  Manual summarization
+    10.0.0.0/16 -> 10.0.0.0/24, 10.0.1.0/24, 10.0.2.0/24
+    Commands:
+      interface f1/0
+      ip summary-address rip 10.0.0.0 255.255.0.0
+      show ip protocols
+
+
 OSPF Open Shortest path first
   Link-state routing protocol.
   Operates within an AS Autonomous system.
