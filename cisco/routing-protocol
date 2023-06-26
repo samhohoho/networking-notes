@@ -28,6 +28,9 @@ Interior gateway protocols
     Each router maintains detailed database of network's topology.
     Database contains all routers, links, and networks.
     Each router floods LSAs Link-state advertisements to neighbour routers.
+      Or LSDB link state database.
+    Link-state request, Link-state update.
+    LSAck message.
 
 RIP Routing information protocol
   Distance-vector routing.
@@ -74,11 +77,12 @@ RIPv2
       ip summary-address rip 10.0.0.0 255.255.0.0
       show ip protocols
 
-
 OSPF Open Shortest path first
+  Commonly used in production.
+  Supported on all vendors' equipment.
   Link-state routing protocol.
   Operates within an AS Autonomous system.
-  Uses SPF Shortest path first algorithm
+  Uses SPF Dijkstra's Shortest path first algorithm
     to calculate best path based on cost.
   Uses cost as metric.
     Cost refers to overall efficiency to send packets.
@@ -86,6 +90,55 @@ OSPF Open Shortest path first
   Routers exchange LSA link-state advertisements
     to build and maintain topology database.
     allow each router to have complete network map.
+  Different interfaces can different instances/Process IDs.
+    Separate LSDB, info not shared.
+    Not normal.
+  Process ID - logical significant
+    Not required to match neighbour for adjacency.
+  Network command default to classful wildcard mask.
+    Except Class A.
+  Set router ID manually or loopback. - best 
+  Loopback as passive-interface. - best
+  Commands:
+    router ospf 1
+    network 10.0.0.0 0.0.0.255 area 0
+    show ip ospf neighbor
+    show ip ospf database
+    show ip route
+    show ip protocols
+    show ip osfp interface brief
+    router ospf 1 
+    passive-interface loopback 0
+    passive-interface f2/0
+    router ospf 1
+    passive-interface default
+    no passive-interface f0/0
+    network 203.0.113.0 0.0.0.255 area 0
+    ---
+    ip route 0.0.0.0 0.0.0.0 203.0.113.2
+    router ospf 1
+    default-information originate ---
+
+OSPF area
+  Transit area = backbone = area 0
+    Handle transit traffic.
+  Regular areas = nonbackbone areas
+    Connect end users to transit area.
+  Same area to form adjacency.
+  Maintain LSDB in own area.
+    Intra area route, type O.
+  ABR Area border router.
+    Multiple areas.
+    Source for default routes.
+    Manual config summarization, otherwise routes flood everywhere.
+    network statements - wildcard, summary address - subnet mask
+    Commands:
+      router ospf 1
+      network 10.1.0.0 0.0.255.255 area 0
+      network 10.0.0.0 0.0.255.255 area 1
+      area 0 range 10.1.0.0 255.255.0.0
+      area 1 range 10.0.0.0 255.255.0.0
+  summarization always on ABRs.
 
 IS-IS Intermediate system to Intermediate system
   Link-state routing protocol.
