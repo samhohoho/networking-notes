@@ -2,6 +2,11 @@ sh version - view system image
 sh flash - show system images.
 delete flash ... - del file in flash memory
 show ip route - 
+sh ip protocols
+sh ip rip database
+sh run | sec eigrp
+show ip rip database
+clear ip ospf process - restart config
 debug
 
 show running-config | include ip domain-name
@@ -18,6 +23,7 @@ Router commands, global configuration mode
     interface FastEthernet0/0
       Interface configuration mode
     ip address 192.168.0.1 .255.255.255.0
+    ip add address 192.168.0.1 .255.255.255.0
     no shutdown
       Interfaces are shutdown by default.
   Setup wizard
