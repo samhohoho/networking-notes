@@ -1,0 +1,62 @@
+VLAN
+  Brief:
+    Layer 2.
+    VLAN on switches.
+    Switches flood broadcast traffic raises performance and security concerns.
+      Bypass security policy on router (blocking traffic between A and B).
+      Affects performance by using bandwidth.
+    Segment LAN into separate broadcast domains.
+    1-1 relation between an IP subnet nad a VLAN.
+    Traffics/hosts in same IP subnet should in same VLAN.
+    Example: 
+
+VLAN access port
+  Brief:
+    Configured on switch interfaces where end hosts are plugged in.
+    One specific VLAN.
+    All ports are VLAN 1 - default
+  Commands:
+    Create VLAN:
+      vlan 10
+      name Eng
+    Configure switch ports as access port:
+      interface FastEthernet0/1
+      switchport mode access
+      switch port access vlan 10
+      ---
+      interface range FastEthernet0/3 - 5
+      switchport mode access
+      switchport access vlan 10
+    Basic:
+      show vlan brief
+      show interface fastEthernet0/1 switchport
+
+Network Topology
+  Brief:
+    Access, distribution, and core layers.
+    Traditional data center env - North-South traffic flow.
+    Modern - West-East.
+  Access
+    Brief:
+      End hosts plug.
+      Have high port count.
+      Support many end hosts.
+      Client security measures.
+      LAN security measures.
+  Distribution
+    Brief:
+      Aggregation point for access.
+      Provide scalability.
+      Software policy, such as QoS.
+  Core
+    Brief:
+      Traffic travels through core.
+      Speed and resiliency.
+
+Spine-leaf data center design.
+  Brief:
+    East-West bound traffic.
+    Good performance and scalability.
+    Only 2 hops for servers to communicate with each other.
+  Leaf layer
+    Connected to servers.
