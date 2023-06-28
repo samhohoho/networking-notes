@@ -78,28 +78,91 @@ RIPv2
       show ip protocols
 
 OSPF Open Shortest path first
-  Commonly used in production.
-  Supported on all vendors' equipment.
-  Link-state routing protocol.
-  Operates within an AS Autonomous system.
-  Uses SPF Dijkstra's Shortest path first algorithm
-    to calculate best path based on cost.
-  Uses cost as metric.
+  Brief:
+    Link-state routing protocol.
+    Commonly used in production.
+    Supported on all vendors' equipment.
+    Operates within an AS Autonomous system.
+  Glossary:
+    DBD Database description packets.
+    LSR Link-state request.
+    LSU Link-state update.
+    LSA Link-state advertisements.
+    LSAck 
+    SPF Dijkstra's Shortest path first algorithm
+    MTU Maximum Transmission Unit.
+    DR Designated router.
+    BDR Backup designated router.
+    Point-to-point/multipoint link.
+  Packet:
+    Protocol number
+      Layer 3 IP header.
+      TCP: 6, UDP: 17, OSPF: 89
+    Type
+      1 - Hello, 2 - DBD, 3 - LSR, 4 - LSU, 
+    RouterID, length, area ID, checksum, authentication type.
+    Payload - routing table.
+    Hello interval - 10s, dead interval - 40s, neighbor list, area ID, 
+    authentication, and stub area flag.
+  Cost as metric.
     Cost refers to overall efficiency to send packets.
     Higher bandwidth will have lower cost.
+    Cost = ref bandwidth / actual interface bandwidth
+      ref bandwidth = 100 megabits per second - default
+      Manipulate overall cost.
+    Commands:
+      router ospf 1
+      auto-cost reference-bandwidth 100000
+      ---
+      show interface serial1/0
+      interface serial1/0
+      bandwidth 768 
+      ---
+      interface f0/0
+      ip ospf cost 50
   Routers exchange LSA link-state advertisements
     to build and maintain topology database.
     allow each router to have complete network map.
+  Packets:
+    Hello interval - 10s, dead interval - 40s, neighbor list, area ID, 
+    authentication, and stub area flag.
+  Neighbour states:
+    Down, INIT, 2-way, exstart, exhange, loading, full.
   Different interfaces can different instances/Process IDs.
     Separate LSDB, info not shared.
     Not normal.
   Process ID - logical significant
     Not required to match neighbour for adjacency.
-  Network command default to classful wildcard mask.
-    Except Class A.
-  Set router ID manually or loopback. - best 
-  Loopback as passive-interface. - best
+  Multiaccess segments
+    Brief:
+      Interface level.
+      A lot repetitive info if full mesh.
+      A router be DR, handle all info and reflect to all.
+      BDR, incase DR goes down.
+      Default priority router = 1, the higher the better (0-255)
+      Election at 2-way stage.
+      Point-to-point link, no DR.
+      Only DR and BDR listen multicast address (224.0.0.6).
+      DR multicast update to all routers, 224.0.0.5.
+      Highest router ID/loopback address = DR
+        Second highest = BRD
+      Non-DR/BDR dont exhange routes.
+    Commands
+      DR - restart
+        interface f0/0
+        ip opsf priority 100
+        clear ip ospf command
+  Best practice:
+    Set router ID manually or loopback.
+    Loopback as passive-interface.
+    Leave timers to default.
+    Configure authentication.
+    All routers should have same configs.
+    Loopback address.
   Commands:
+    Notes:
+      Network command default to classful wildcard mask.
+        Except Class A.
     router ospf 1
     network 10.0.0.0 0.0.0.255 area 0
     show ip ospf neighbor
@@ -107,9 +170,11 @@ OSPF Open Shortest path first
     show ip route
     show ip protocols
     show ip osfp interface brief
+    ---
     router ospf 1 
     passive-interface loopback 0
     passive-interface f2/0
+    ---
     router ospf 1
     passive-interface default
     no passive-interface f0/0
@@ -117,7 +182,25 @@ OSPF Open Shortest path first
     ---
     ip route 0.0.0.0 0.0.0.0 203.0.113.2
     router ospf 1
-    default-information originate ---
+    default-information originate
+    ---
+    debug ip ospf adj
+    u all
+    ---
+    debug ip ospf hello
+    ---
+    config t
+    int g0/0
+    ip ospf hello-interval 5
+    end
+    ---
+    sh int g0/0
+    ---
+    config
+    int g0/0
+    ip mtu 1460
+    end
+    clear ip ospf pro
 
 OSPF area
   Transit area = backbone = area 0
@@ -139,6 +222,9 @@ OSPF area
       area 0 range 10.1.0.0 255.255.0.0
       area 1 range 10.0.0.0 255.255.0.0
   summarization always on ABRs.
+
+Bandwidth 
+  Affects software policy.
 
 IS-IS Intermediate system to Intermediate system
   Link-state routing protocol.
