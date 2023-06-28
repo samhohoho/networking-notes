@@ -31,6 +31,83 @@ VLAN access port
       show vlan brief
       show interface fastEthernet0/1 switchport
 
+VLAN Trunk Ports
+  Brief:
+    Dot1Q protocol.
+    Link between switches as trunk port.
+    Carry traffic for all VLANs.
+    VLAN info in layer 2 header.
+    Rmv Dot1Q VLAN when to end host.
+    Format example - 802.1Q header (VLAN ID)
+    Switch will detect that its IP phone.
+  Native VLAN
+    No end hosts.
+    Inactive - no access port.
+  Limiting allowed VLANS
+    Security and performance.
+  Best:
+    Change to unused VLAN.
+    Use 'switchport mode trunk' with another switch.
+    Use 'switchport mode access' with end hosts.
+    Manually config trunk ports.
+  Commands:
+    Basic:
+      show interface gig0/1 switchport
+    Configure interface as trunk port.
+      interface fastEthernet0/24
+      description Trunk to SW2
+      switchport trunk encapsulation dot1q
+      switchport mode trunk
+    Special config IP phone with a PC
+      interface FastEthernet 0/10
+      description IP Phone
+      switchport mode access
+      switchport access vlan 10
+      switchport voice vlan 20
+    Native VLAN configuration
+      vlan 199
+      name Native
+      interface GigabitEthernet 0/1
+      description Trunk to SW2
+      switchport trunk encapsulation dot1q
+      switchport mode trunk
+      switchport trunk native vlan 199
+    Allowed VLAN config
+      interface GigabitEthernet 0/1
+      switchport trunk allowed vlan 10,30
+
+DTP Dynamic trunking protocol
+  Brief:
+    Not recommended.
+  Commands:
+    Form trunk if neighbour switch port is trunk:
+      switchport mode dynamic auto
+    Form trunk:
+      switchport mode dynamic desirable
+    Disables DTP:
+      switchport nonegotiate
+
+VTP VLAN trunking protocol
+  Brief:
+    Add new switch with no VLANs will delete all existing VLANs.
+  VTP server:
+    Add, edit, delete VLANs on switches.
+    Changes on VTP server synchronize all switches.
+    VTP server synchronize VLAN db from another server with higher revision number.
+  VTP client:
+    Switches VTP clients synchronize VLAN db with switch VTP servers.
+  VTP transparent:
+    Middleman, pass info from server to client.
+  Commands:
+    Configuration:
+      vtp domain flackbox
+      vtp mode server/client/transparent
+    Add VLAN:
+      vlan 20
+      name sales
+    Verification:
+      show vtp status
+
 Network Topology
   Brief:
     Access, distribution, and core layers.
