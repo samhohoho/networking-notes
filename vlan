@@ -38,6 +38,7 @@ VLAN Trunk Ports
     Carry traffic for all VLANs.
     VLAN info in layer 2 header.
     Rmv Dot1Q VLAN when to end host.
+    Tag with dot1q tag when to router.
     Format example - 802.1Q header (VLAN ID)
     Switch will detect that its IP phone.
   Native VLAN
@@ -107,6 +108,34 @@ VTP VLAN trunking protocol
       name sales
     Verification:
       show vtp status
+
+Virtual sub-interfaces on router - option 2
+  Brief:
+    A single physical interface divided into logical sub-interfaces.
+    Each with unique config.
+    Separate traffic into different VLANs.
+    Multiple networks over single physical interface.
+  Commands:
+    interface FastEthernet0/1
+    no ip address
+    no shutdown
+    interface fastEthernet0/1.10
+    encapsulation dot1q 10
+    ip address 10.10.20.1 21 255.255.255.0
+
+Layer 3 switch - option 3
+  Brief:
+    SVI Switch virtual interface instead of physical interface.
+    Virtual interfaces act as default gateway.
+    Only support ethernet.
+    Need router to WAN.
+    Layer 3 interface = IP address on interface.
+  Commands:
+    WAN routing configuration:
+      interface fastEthernet0/1  
+      no switchport
+      ip addresse 10.10.100.1 255.255.255.0
+      ip route 0.0.0.0 0.0.0.0 10.10.100.2
 
 Network Topology
   Brief:
