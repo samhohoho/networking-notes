@@ -1,0 +1,52 @@
+DHCP Dynamic host configuration protocol
+  Brief:
+    Client/server protocol
+    Provide host with IP address and config info.
+    By RFC 2131
+    Centralized and automated IP configuration.
+    Forward initial DHCP messages via DHCP relay agent.
+  Process:
+    Client sends Discover message, broadcast traffic.
+    DHCP reply DHCP Offer.
+    Client reply DHCP request.
+    Server sends acknowledgement.
+  Commands:
+    Verify:
+      show ip dhcp pool 
+      show ip dhcp binding - given out addresses
+    Cisco DHCP Server configuration:
+      Notes:
+        Exclude addresses from DHCP scope.
+        10.10.10.1 to 10.10.10.10 will not to clients.
+        Small office.
+      ip dhcp excluded-address 10.10.10.1 10.10.10.10
+      ip dhcp pool 10.10.10.0_Clients
+      network 10.10.10.0 255.255.255.0 - client IP address range
+      default router 10.10.10.1 - default gateway
+      dns-server 10.10.20.10
+    External DHCP server configuration:
+      Notes:
+        DHCP request served by DHCP and DNS server.
+        Router to forward DHCP request.
+      Commands:
+        interface f0/1
+        ip helper-address 10.10.20.10
+
+DHCP server 
+  Cisco router or external server.
+
+DHCP client on router
+  Brief:
+  Verify:
+    show dhcp lease
+  Commands:
+    Verify:
+      show dhcp lease
+    Configuration:
+      interface f0/0
+      ip address dhcp
+      no shutdown
+    Router outside interface
+      int f0/0
+      ip address dhcp
+      no shutdown
