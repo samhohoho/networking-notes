@@ -1,0 +1,44 @@
+***CCNA***
+HSRP Hot standby router protocol
+  Brief:
+    Uses virtual IP and MAC addresses.
+    Automatic gateway failover capabilities.
+    Configured at interface level.
+    Active router take over virtual IP and MAC address.
+    Standby router ready to take over.
+    Exchange hello message periodically.
+    Use virtual IP as default gateway.
+    Pre-emption.
+  Commands:
+    Verify:
+      show standby
+    Layer 3 configuration:
+      ip route 0.0.0.0 0.0.0.0 203.0.113.1 - static route to SP1
+      ip route 0.0.0.0 0.0.0.0 10.10.20.2 5 - backup to SP1 via R2, AD of 5
+      ip route 10.10.10.0 255.255.255.0 10.10.20.2 - backup inside via R2
+    HSRP configuration:
+      interface g0/0
+      ip address 10.10.10.2 255.255.255.0
+      no shutdown
+      standby 1 ip 10.10.10.1
+      standby 1 priority 110
+      standby 1 preempt
+      ---
+      standby version 2 - version configuration
+
+
+FHRP First hop redundancy protocols
+  Brief:
+    Dont want to manually reconfigure PCs if router down.
+    
+VRRP Virtual router redundancy protocol
+  Brief:
+    Similar to HSRP.
+    Active/standby pair.
+    Open standard.
+
+GLBP Gateway load balancing protocol
+  Brief:
+    Cisco proprietary.
+    Supports:
+      Active/active load balancing across multiple routers.
