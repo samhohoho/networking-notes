@@ -1,0 +1,29 @@
+STP Spanning tree protocol
+  Brief:
+  	Layer 2.
+  	Prevents loop, broadcast storms.
+  	Shuts down physically cabled interfaces.
+  	Reduce available bandwidth.
+  	Slow convergence time.
+  	Enabled on all modern switches.
+    No load balancing.
+    ---
+    Bridge priority 0 - 65535, 32768 default.
+    Bridge ID = MAC + bridge priority 
+    ---
+  How:
+    Switch roles
+      Root bridge, central point of networking.
+      Root bridge - lowest bridge priority value / MAC.
+    BPDU Bridge protocol data units
+      Switches exchange BPDU.
+      Switch's identity, role, cost to root bridge.
+    Path cost calculation
+      Root port.
+      Designated port = opposite of root port
+      Each switch calculates cost of reaching the root bridge.
+      Based on link speed.
+    Blocking ports
+      Spanning tree blocks one side of blocked link.
+      Blocking state on ports that not part of spanning tree.
+      Designated port side = switch with least cost to root/bridge ID.
