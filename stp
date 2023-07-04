@@ -27,3 +27,68 @@ STP Spanning tree protocol
       Spanning tree blocks one side of blocked link.
       Blocking state on ports that not part of spanning tree.
       Designated port side = switch with least cost to root/bridge ID.
+  Commands:
+    Verify:
+      show spanning-tree vlan 1
+      show mac address-table
+
+Root bridge election
+  Brief:
+    By setting bridge priority.
+    Old switch suboptimal performance.
+    DIfferent root bridge for different VLANs.
+  Commands:
+    spanning-tree vlan 1 root primary - set 24576 bridge priority
+    spanning-tree vlan 1 root 24576
+    spanning-tree vlan 1 root secondary - 28672
+
+Portfast
+  Brief:
+  BPDU guard
+    Port shutdown when received.
+    Best on ports connect to end hosts.
+  Commands:
+    int f0/10
+    spanning-tree portfast
+    spanning-tree portfast default
+    ---
+    no spanning-tree portfast - for ports connected to switch
+    ---
+    spanning-tree bpduguard enable
+    spanning-tree portfast bpduguard default - global
+
+Root guard
+  Glossary:
+    root-inconsistent state: blocking all traffic from that port.
+    Superior BPDU: BPDU with lower bridge ID.
+  Brief:
+    Prevents unintended root bridge.
+    Ensure no unauthorized switch take over root bridge role.
+    Root guard enabled port into root-inconsistent state when received superior BPDU.
+    Configured on ports that never be path to root bridge.
+  Commands:
+    Configuration:
+      interface fa0/2
+      spanning-tree guard root
+
+Open standard Versions
+  802.1D
+    Original implementation of spanning tree.
+    One spanning tree for all VLANs.
+    50 sec to forwarding state.
+  Rapid spanning tree, 802.1w
+    Improve convergence time.
+  Multiple spanning tree, 802.1s
+    Latest industry standard.
+    Multiple spanning trees to coexist in a network.
+    Grouping and mapping VLANs into different ST instances.
+    Load balancing.
+
+Cisco proprietary versions
+  PVST+
+    Uses separate spanning tree instance for every VLAN.
+    Load balancing.
+    Default on Cisco switches.
+    Alternate ports = blocking ports.
+  RPVST+
+    Improve convergence time.
