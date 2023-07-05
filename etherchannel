@@ -1,0 +1,68 @@
+Etherchannel
+  Brief:
+    Group multiple physical interfaces into a single logical interface.
+    Spanning-tree will not block any ports.
+    Load balance across all links in etherchannel.
+    Redundancy.
+    LACP, PaGP, and static protocols.
+    Matching settings.
+  LACP Link aggregation control protocol
+    Brief:
+      Open standard.
+      Active or passive.
+    Commands:
+      Verify:
+        show etherchannel summary
+        show spanning-tree vlan 1
+      Create interface portchannel:
+        int range f0/23 - 24
+        channel-group 1 mode active
+      Configure interface portchannel:
+        interface port-channel 1
+        switchport mode trunk
+      PAgP configuration:
+        channel-group 1 mode desirable
+      Static configuration:
+        channel-group 1 mode on
+
+Oversubscription
+  Brief:  
+    Aggregation capacity greater than actual demand from end hosts.
+    Aggregation capacity of network resourcecs,
+      such as ports, bandwidth, or processing power.
+    Not all devices will use the max capacity simultaneously.
+    20:1 access to dist layer.
+      20 PCs with 1 Gbps each require a 1G uplink to dist layer.
+    4:1 dist to core layer.
+
+Mutlti-chassis Etherchannel
+  Brief:
+    Multiple physical chassis are interconnected to single logical entity.
+    Link aggregation of physical links between multiple switches/routers 
+      to create single logical link.
+    Full use of physical bandwidth across all interfaces.
+    Increase capacity, redundancy, and load balancing.
+    Failover to another interface.
+    Forming loop-free topology.
+    Must match settings.
+    StackWise, VSS, and vPC.
+
+Layer 3 Etherchannel
+  Brief:
+  Commands:
+    Notes:
+      Simalar to layer 2.
+      But 'no switchport' command, standard layer 3 command.
+    Configuration:
+      interface port-channel 1
+      ip address 192.168.0.1 255.255.255.252
+      no shutdown
+
+Layer 3 links everywhere
+  Brief:
+    No spanning-tree anymore.
+    Support routing protocol, 
+      efficient routing table management and dynamic updates.
+    Routing protocol to handle path determination.
+    Equal cost load balancing.
+    Access layer switches will be the default gateway.
