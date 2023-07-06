@@ -1,0 +1,78 @@
+DHCP snooping - 1st security mechanism
+  Brief:
+    Configures switch ports as trusted or untrusted.
+    Mitigate risks associated with rogue DHCP servers and unauthorized network device.
+    Ports connected to DHCP servers are trusted.
+    User-facing ports are untrusted.
+  Commands:
+    ip dhcp snooping
+    ip dhcp snooping vlan 10
+    int f0/1
+    ip dhcp snooping trust
+
+DAI Dynamic ARP Inspection - 2nd
+  Glossary:
+    Gratuitous ARP - not actual ARP update
+  Brief:
+    Require DHCP spoofing be enabled.
+    Inspect ARP message and maintain ARP table.
+    Validate ARP request before forwarding.
+  MITM Man-in-the-middle ARP spoofing / ARP poisoning
+    Brief:
+      Intercept and manipulate network traffic between 2 communicating parties.
+      Exploits vulnerabilities in ARP.
+      Attacker sends forged ARP responses.
+      Attacker sends gratuitous ARP.
+      Claims attacker's MAC address is associated with targeted device's IP address.
+      Poison ARP cache.
+  Commands:
+    int f0/1
+    ip arp inspection trust
+    ip arp inspection vlan 10
+
+802.1x Identity based networking - 3rd
+  Brief:
+    Networking standard.
+    Provides port-based access control for wired and wireless network.
+    Enhance security by authenticating and authorizing devices
+      before granting access.
+    Authenticator, authentication request, supplicant, authentication server
+    Transitions network port/access point to 'authorized' state.
+    
+Port security
+  Brief:
+    Prevents wireless access points or shared devices.
+    MAC address filtering.
+    Security violation options,
+      shutdown (default), protect, restrict.
+  To recover error-disabled interface:
+    Remove the unauthorized MAC address.
+    'shutdown' then 'no shutdown' on interface.
+  MAC address learning:
+    Add learned MAC address to run-config.
+    Save it to start-config for permanent.
+  Commands:
+    Verify:
+      show post-security interface f0/2
+      show post-security
+      ping
+    Default setting:
+      int f0/2
+      switchport post-security - only 1 MAC address allowed, no save.
+      ---
+      switchport post-security maximum 2
+    Violation action configuration
+      int f0/2
+      switchport port-security violation protect | restrict
+    Auto-recovery
+      errdisable recovery cause psecure-violation
+      errdisable recovery interval 600 - 600 seconds
+    MAC address filtering
+      interface fa0/10
+      switchport port-security
+      switchport port-security mac address 1111.2222.3333
+      switchport port-security maximum 1
+    MAC address learning
+      interface fa0/2
+      switchport port-security
+      switchport port-security mac-address sticky
