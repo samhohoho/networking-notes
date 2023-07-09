@@ -1,0 +1,43 @@
+ACL Access control list 
+  Brief:
+    Security mechanism.
+    Control and manage access to resources.
+    A list of permissions or rules that determine action.
+    Made of ACE Access control entries,
+      a series of permit or deny rules.
+    'implicit deny any any' rule by default.
+  Syntax:
+    port number: eq 80 / eq www log
+  ACE:
+    1-99: IP standard access-list.
+    100-199: extended list
+    Standard ACL: source address only.
+    Extended ACL: protocol, source dst address, port number.
+  Named ACL:
+    Command begin with 'ip access-list'
+  ACL action
+  Commands:
+    Verify:
+      show access-list 100
+    Explicit deny all:
+      access-list 1 deny any any log - to log it.
+    Explicit permit all:
+      access-list 1 permit any
+
+Access group
+  Brief:
+    To apply ACLs.
+    Maximum of one ACL per interface, per direction.
+    Can both an inbound and an outbound ACL on the same interface.
+    Inbound or outbound.
+  Commands:
+    interface GigabitEthernet0/1
+    ip access-group 100 out
+    ip access-group 101 in
+
+Injecting ACEs in an existing ACL
+  Commands:
+    Numbered ACL:
+      ip access-list extended 110
+      15 deny tcp host 10.10.10.11 host 10.10.50.10 eq telnet
+

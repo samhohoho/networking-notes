@@ -1,0 +1,59 @@
+NAT
+  Brief:
+    To conserve IPv4 addresses.
+    Many hosts share single IP address to outside.
+    To communicate with internet with shared single IP address of LAN devices.
+    Map multiple private IP address to single public IP address.
+  NAT router:
+    Two interfaces - private and public network
+  Outbound translation
+    NAT router replaces private IP address with its own public IP address.
+  Pros:
+    IP address conservation
+      To use private IP address internally.
+      Reduce the need for public IP addresses.
+    Security
+      NAT as a firewall by hiding internal network structure.
+  Definition:
+    inside global - IP address used to reach inside host.
+    inside local - private IP address and port number of original packet, inside network.
+    outside local address - outside host IP address.
+    outside global - outside host IP address.
+    ---
+    outside local and global are the same because router not translate.
+
+Static NAT
+  Brief:
+    1-1 translation between a private and public IP address.
+    Server to receive incoming messages.
+    To connect hosts to the internet.
+    Bidirectional.
+  Commands:
+    Configuration
+      int f0/0
+      ip nat outside - outside interface
+      int f1/0
+      ip nat inside
+      ip nat inside source static 10.0.1.10 203.0.113.3
+
+Dynamic NAT
+  Brief:
+    A pool of public IP address is configured on NAT device.
+    Outbound connection, NAT device assign public IP address from the pool.
+    Translation table is updated the mapping between IP add and assigned public IP add.
+    Public IP add is released back to pool when idle.
+  Pros:
+    Handle large number of hosts with smaller pool.
+  Cons:
+    Limited simultaneous outbound connections.
+    DIfficult to establish reliable connections as public IP add is assigned dynamically.
+  Commands:
+    Configuration:
+      ip nat pool Flackbox 203.0.113.4 203.0.113.14 netmask 255.255.255.248 - pool of global add.
+      access-list 1 permit 10.0.2.0 0.0.0.255 
+      ip nat inside source - associate access-list with NAT pool.
+    Verify:
+      sh ip nat translation
+      sh ip nat statistics
+    Others:
+      clear ip nat translation - rm all dynamic translations to change Configuration.
